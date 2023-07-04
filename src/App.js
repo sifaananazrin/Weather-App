@@ -4,7 +4,7 @@ import axios from 'axios';
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
-  const [unit, setUnit] = useState('imperial'); // default unit is Fahrenheit (°F)
+  const [unit, setUnit] = useState('metric');  // default unit is Fahrenheit (°F)
 
   useEffect(() => {
     if (navigator.geolocation) {
