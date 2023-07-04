@@ -4,7 +4,7 @@ import axios from 'axios';
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
-  const [unit, setUnit] = useState('metric');  // default unit is Fahrenheit (°F)
+  const [unit, setUnit] = useState('metric'); // default unit is Celsius (°C)
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -56,13 +56,12 @@ function App() {
 
   const convertTemperature = (temp) => {
     if (unit === 'imperial') {
-      return temp; // Return the temperature in Fahrenheit as it is
+      return (temp * 9) / 5 + 32; // Convert Celsius to Fahrenheit
     } else {
-      return ((temp - 32) * 5) / 9; // Convert Fahrenheit to Celsius
+      return temp; // Return the temperature in Celsius as it is
     }
   };
-  
-  
+
 
   return (
     <div className="app">
@@ -80,11 +79,11 @@ function App() {
           <div className="location">
             <p>{location}</p>
           </div>
-          <div className="temp">
+           <div className="temp">
             {data.main ? (
               <>
                 <h1>{convertTemperature(data.main.temp).toFixed()}°{unit === 'imperial' ? 'F' : 'C'}</h1>
-                <button onClick={toggleUnit}>{unit === 'imperial' ? '°F' : '°C'}</button>
+                <button onClick={toggleUnit}>{unit === 'imperial' ? '°C' : '°F'}</button>
               </>
             ) : null}
           </div>
@@ -103,10 +102,17 @@ function App() {
               {data.main ? <p className="bold">{data.main.humidity}%</p> : null}
               <p>Humidity</p>
             </div>
-            <div className="wind">
-              {data.wind ? <p className="bold">{data.wind.speed.toFixed()} MPH</p> : null}
-              <p>Wind Speed</p>
+            
+            <div className="City">
+              {data.main ? <p className="bold">{data.name}</p> : null}
+              <p>City</p>
             </div>
+           
+           <div className="wind">
+              {data.wind ? <p className="bold">{data.wind.speed.toFixed()} MPH</p> : null}
+              <p> Wind Speed</p>
+            </div>
+           
           </div>
         )}
       </div>
