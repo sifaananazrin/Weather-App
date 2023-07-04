@@ -103,10 +103,10 @@ function App() {
               <p>Humidity</p>
             </div>
             
-            <div className="City">
+            {/* <div className="City">
               {data.main ? <p className="bold">{data.name}</p> : null}
               <p>City</p>
-            </div>
+            </div> */}
            
            <div className="wind">
               {data.wind ? <p className="bold">{data.wind.speed.toFixed()} MPH</p> : null}
