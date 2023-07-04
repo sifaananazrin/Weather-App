@@ -58,9 +58,11 @@ function App() {
     if (unit === 'imperial') {
       return temp; // Return the temperature in Fahrenheit as it is
     } else {
-      return (temp * 9) / 5 + 32; // Convert Celsius to Fahrenheit
+      return ((temp - 32) * 5) / 9; // Convert Fahrenheit to Celsius
     }
   };
+  
+  
 
   return (
     <div className="app">
