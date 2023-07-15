@@ -1,0 +1,16 @@
+.suggestion {
+    background-color: #fff;
+    color: #8f7b7b;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 150px; /* Adjust the width as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 auto; /* Center the suggestion text */
+  }
+  
+  .suggestion:hover {
+    background-color: #f0e1e1;
+  }
